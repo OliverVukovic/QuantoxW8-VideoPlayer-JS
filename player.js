@@ -55,12 +55,17 @@ var exitFullscreen = document.getElementById("exit-fullscreen");
 
 var element = document.documentElement;
 var tv = document.getElementById("tv");
+var settingsBar = document.getElementById("move-up");
+
 
 fullScreen.addEventListener ("click", () => {
     if (element.requestFullscreen) {
         tv.requestFullscreen()
         fullScreen.style.display = "none";
         exitFullscreen.style.display = "flex";
+        settingsBar.style.marginTop = "-115px";
+        settingsBar.style.opacity = "50%";
+        settingsBar.style.background = "black";
     }
 })
 
@@ -69,6 +74,8 @@ exitFullscreen.addEventListener ("click", () => {
         document.exitFullscreen()
         exitFullscreen.style.display = "none";
         fullScreen.style.display = "flex";
+        settingsBar.style.marginTop = "0px";
+        settingsBar.style.opacity = "100%";
     }
 })
 
