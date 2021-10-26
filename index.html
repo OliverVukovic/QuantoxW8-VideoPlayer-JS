@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,
+initial-scale=1.0">
+    <title>Quantox-W8</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <section>
+
+        <div class="header">
+            <h1 class="headline">My video player</h1>
+
+            <div class="search">
+                <input class="search-input" type="text" id="query" placeholder="Search...">
+                <i><img class="search-icon" onclick="loadVideo()" src="./images/search.png" alt="search-icon"></i>
+            </div>
+        </div>
+        
+        <div class="container" id="tv">
+
+            <video class="video-player" id="video" src="./video/CZ-LIV.mp4"></video>
+
+            <div class="video-settings">
+
+                <div class="time-progres">
+                    <div class="progres-bar">
+                        <div class="progres-line"></div>
+                    </div>
+    
+                    <img class="settings-menu" id="drop-down" src="./images/setting.png" alt="menu-icon">
+    
+                    <div class="settings-dropdown" id="dropdown-menu">
+                        <div class="dropdown-modal">
+                            <div class="dropdown-content">
+                                0.5x
+                            </div>
+                            <div class="dropdown-content">
+                                0.75x
+                            </div>
+                            <div class="dropdown-content">
+                                1.5x
+                            </div>
+                            <div class="dropdown-content">
+                                2.0x
+                            </div>
+                            <div class="dropdown-content">
+                                1.0x
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="time" id="time">0.00 / 0.00</div>
+                </div>
+    
+                <div class="buttons-bar">
+    
+                    <div class="volume-bar">
+                        <img class="volume-buttons-on" src="./images/volume.png" id="volume-btn" alt="sound-on" onclick="audioMute()">
+                        <img class="volume-buttons-off" src="./images/mute.png" id="mute-btn" alt="sound-off" onclick="audioVolume()">
+                        <input class="player-slider" type="range" name="volume" min="0" max="10" step="0.5" value="5">
+                    </div>
+    
+                    <div class="buttons">
+                        <button class="round-buttons" type="button" id="rewind-button" onclick="rew()">
+                            <img src="./images/rewind.png" id="rew-btn" alt="rewind">
+                        </button>
+            
+                        <button class="play-pause" type="button" id="play-pause-button" onclick="play()">
+                            <img src="./images/play.png" id="icon-play-pause" alt="play">
+                        </button>
+            
+                        <button class="round-buttons" type="button" id="fast-forwad-button" onclick="ff()">
+                            <img src="./images/fast-forward.png" id="ff-btn" alt="fast-forward">
+                        </button>
+                    </div>
+    
+                    <div class="full-screen">
+                        <img class="full-screen-button" id="fullscreen" src="./images/full-screen.png" alt="full-screen">
+                        <img class="exit-full-screen-button" id="exit-fullscreen" src="./images/exit-full-screen.png" alt="exit-full-screen">
+                    </div>
+    
+                </div>
+                
+            </div>
+
+            
+
+        </div>
+
+    </section>
+
+    <script type="text/javascript" src="player.js"></script>
+
+</body>
+</html>
