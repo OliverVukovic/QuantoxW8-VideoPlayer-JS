@@ -28,48 +28,62 @@ initial-scale=1.0">
 
             <div class="video-settings" id="move-up">
 
-                <div class="time-progres">
+                <div class="time-progress">
 
-                    <div class="progres-bar" id="progress-out">
-                        <div class="progres-line" id="progress-in"></div>
+                    <div class="progress-bar" id="progress-out">
+                        <div class="progress-line" id="progress-in" value="0"></div>
+                        <!-- <input class="progres-line" id="progress-in" min="0" max="0" value="" step="1"> -->
                     </div>
     
-                    <img class="settings-menu" id="drop-down" src="./images/setting.png" alt="menu-icon">
+                    <img class="settings-menu" id="drop-down" src="./images/setting.png" alt="menu-icon" onclick="dropDown()">
     
                     <div class="settings-dropdown" id="dropdown-menu">
-                        <div class="dropdown-modal">
-                            <div class="dropdown-content">
+                        <div class="dropdown-modal" id="playback-rate">
+                            <div class="dropdown-content" onclick="playPoint5()">
                                 0.5x
                             </div>
-                            <div class="dropdown-content">
+                            <div class="dropdown-content" onclick="playPoint75()">
                                 0.75x
                             </div>
-                            <div class="dropdown-content">
+                            <div class="dropdown-content"onclick="play1Point5()">
                                 1.5x
                             </div>
-                            <div class="dropdown-content">
+                            <div class="dropdown-content" onclick="play2Point()">
                                 2.0x
                             </div>
-                            <div class="dropdown-content">
+                            <div class="dropdown-content" onclick="playNormal()">
                                 1.0x
                             </div>
                         </div>
+                        <!-- <select class="dropdown-modal" name="playbackRate" id="playback-rate">
+                            <option class="dropdown-content" value="0.5">0.5x</option>
+                            <option class="dropdown-content" value="0.75">0.75x</option>
+                            <option class="dropdown-content" value="1" selected>1.0x</option>
+                            <option class="dropdown-content" value="1.5">1.5x</option>
+                            <option class="dropdown-content" value="2.0">2.0x</option>
+                        </select> -->
                     </div>
+
+                    
         
-                    <div class="time" id="time">0.00 / 0.00</div>
+                    <div class="time-box" id="time">
+                        <span id="current-time-text">00.00</span> / <span id="duration-time-text">00.00</span>
+                        <!-- <span class="timestamp" id="timestamp">00:00</span> -->
+                    </div>
 
                 </div>
+
     
                 <div class="buttons-bar">
     
                     <div class="volume-bar">
                         <img class="volume-buttons-on" src="./images/volume.png" id="volume-btn" alt="sound-on" onclick="audioMute()">
                         <img class="volume-buttons-off" src="./images/mute.png" id="mute-btn" alt="sound-off" onclick="audioVolume()">
-                        <input class="player-slider" type="range" name="volume" min="0" max="10" step="0.5" value="5">
+                        <input class="volume-slider" type="range" name="volume" min="0" max="100" step="5" value="50" id="volumeslider">
                     </div>
     
                     <div class="buttons">
-                        <button class="round-buttons" type="button" id="rewind-button" onclick="rew()">
+                        <button class="round-buttons" type="button" id="rewind-button" onclick="skip(-10)">
                             <img src="./images/rewind.png" id="rew-btn" alt="rewind">
                         </button>
             
@@ -77,7 +91,7 @@ initial-scale=1.0">
                             <img src="./images/play.png" id="icon-play-pause" alt="play">
                         </button>
             
-                        <button class="round-buttons" type="button" id="fast-forwad-button" onclick="ff()">
+                        <button class="round-buttons" type="button" id="fast-forwad-button" onclick="skip(10)">
                             <img src="./images/fast-forward.png" id="ff-btn" alt="fast-forward">
                         </button>
                     </div>
