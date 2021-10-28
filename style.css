@@ -142,7 +142,7 @@ section {
 }
 
 .time-box {
-    width: 13%;
+    width: 15%;
     font-family: 'Londrina Solid', 'sans-serif';
     font-size: 18px;
     line-height: 24px;
@@ -221,7 +221,7 @@ input[type='range']::-webkit-slider-thumb {
     border: 2px solid black;
     cursor: pointer;
     background: red;
-    box-shadow: -100px 0 0 100px red;
+    box-shadow: -200px 0 0 200px red;
   }
 
 
