@@ -4,6 +4,7 @@ var volume = document.getElementById("mute-btn");
 var playIcon = document.getElementById("icon-play-pause");
 var progressLine = document.getElementById("progress-in");
 var progress = document.getElementById("progress-out");
+var time = document.getElementById("time");
 
 // --- Video play ---
 
@@ -19,15 +20,6 @@ function play() {
         // clearInterval(interval);
     }
 
-    // current time & progress
-
-    var time = document.getElementById("time");
-
-    video.addEventListener('timeupdate', function() {
-        time.innerHTML = Math.floor(video.currentTime);
-        let progressWidth = video.currentTime / video.duration * 100;
-        progressLine.style.width = progressWidth + '%';
-    })
 
 
     function scrub(e) {
@@ -46,6 +38,8 @@ function play() {
     
     progress.addEventListener("mousedown", () => mousedown = true);
     progress.addEventListener("mouseup", () => mousedown = false);
+
+
 
 
     // ------> time interval function (odbrojava samo sekunde)
@@ -72,7 +66,19 @@ function play() {
     //         width++;
     //         progressLine.style.width = width + "%";
     //     }
+
     // }  ----------------------------------------------------------
+
+
+
+    // var time = document.getElementById("time");  -----  progres radi, ali se f kosi sa vremenom
+
+    // video.addEventListener('timeupdate', function() {
+    //     time.innerHTML = Math.floor(video.currentTime);
+    //     let progressWidth = video.currentTime / video.duration * 100;
+    //     progressLine.style.width = progressWidth + '%';
+    // })
+
  
 }
 
@@ -153,6 +159,7 @@ function playPoint5() {
     video.playbackRate = 1.0;
   } 
 
+
 // --- Fullscreen --- 
 
 var fullScreen = document.getElementById("fullscreen");
@@ -161,6 +168,7 @@ var exitFullscreen = document.getElementById("exit-fullscreen");
 var element = document.documentElement;
 var tv = document.getElementById("tv");
 var settingsBar = document.getElementById("move-up");
+var body = document.getElementById("body");
 
 
 fullScreen.addEventListener ("click", () => {
@@ -168,9 +176,14 @@ fullScreen.addEventListener ("click", () => {
         tv.requestFullscreen()
         fullScreen.style.display = "none";
         exitFullscreen.style.display = "flex";
-        settingsBar.style.marginTop = "-115px";
+        settingsBar.style.marginTop = "-100px";
         settingsBar.style.opacity = "50%";
         settingsBar.style.background = "black";
+        tv.style.padding = "0";
+    // } if (body.style.width < "430px") {
+    //     settingsBar.style.marginTop = "-75px";
+    // } else {
+    //     settingsBar.style.marginTop = "-100px";
     }
 })
 
@@ -186,36 +199,40 @@ exitFullscreen.addEventListener ("click", () => {
 
 
 
+ // current time & progress
 
+function timeUp() {
+    var curTimetext = document.getElementById("current-time-text");
+	var durTimetext = document.getElementById("duration-time-text");
 
-
- // var curTimetext = document.getElementById("current-time-text");
-	// var durTimetext = document.getElementById("duration-time-text");
-
-
-    //     var newTime = video.currentTime * (100 / video.duration);
-    //     progressLine.value = newTime;
+        var newTime = video.currentTime * (100 / video.duration);
+        progressLine.value = newTime;
     
-    //     var currentMinutes = Math.floor(video.currentTime / 60);
-    //     var currentSecundes = Math.floor(video.currentTime - currentMinutes * 60);
-    //     var durationMinutes = Math.floor(video.duration / 60);
-    //     var durationSecundes = Math.floor(video.duration - durationMinutes * 60);
+        var currentMinutes = Math.floor(video.currentTime / 60);
+        var currentSecundes = Math.floor(video.currentTime - currentMinutes * 60);
+        var durationMinutes = Math.floor(video.duration / 60);
+        var durationSecundes = Math.floor(video.duration - durationMinutes * 60);
     
-    //     if (currentSecundes < 10) {
-    //         currentSecundes = "0" + currentSecundes;
-    //     } else
-    //     if (durationSecundes < 10) {
-    //         durationSecundes = "0" + durationSecundes;
-    //     } else
-    //     if (currentMinutes < 10) {
-    //         currentMinutes = "0" + currentMinutes;
-    //     } else
-    //     if (durationMinutes < 10) {
-    //         durationMinutes = "0" + durationMinutes;
-    //     }
-        
-    //     curTimetext.innerHTML = currentMinutes + ":" + currentSecundes;
-	//     durTimetext.innerHTML = durationMinutes + ":" + durationSecundes;
+        if (currentSecundes < 10) {
+            curTimetext.innerHTML = currentMinutes + ":" + "0" + currentSecundes;
+        }
+        else curTimetext.innerHTML = currentMinutes + ":" + currentSecundes;
+
+        if (durationSecundes < 10) {
+            durTimetext.innerHTML = durationMinutes + ":" + "0" + durationSecundes;
+        }
+        else durTimetext.innerHTML = durationMinutes + ":" + durationSecundes;
+
+
+        let progressWidth = (video.currentTime / video.duration) * 100;
+        progressLine.style.width = progressWidth + "%";
+}
+
+video.addEventListener("timeupdate", timeUp);
+
+
+
+ 
 
 
 
