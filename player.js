@@ -48,10 +48,39 @@ function play() {
     progress.addEventListener("mouseup", () => mousedown = false);
 
 
+    // ------> time interval function (odbrojava samo sekunde)
+
+    // setInterval(function() {
+    //     document.getElementById("time").innerHTML = video.currentTime;
+    // }, 100)    --------------------------------------------------------
+
+    
+    // ------> progress frame function (radi velikom brzinom)
+
+    // var progressLine = document.getElementById("progress-in");
+    // var width = 1;
+    // var interval;
+
+    // clearInterval(interval);
+    // interval = setInterval(frame, 100);
+
+    // function frame() {
+    //     if (width >= 100) {
+    //         width = 1;
+    //         clearInterval(interval);
+    //     } else {
+    //         width++;
+    //         progressLine.style.width = width + "%";
+    //     }
+    // }  ----------------------------------------------------------
+ 
+}
+
+
 
   // --- FF / Rew ---
 
-  function skip(value) {
+function skip(value) {
     var video = document.getElementById("video");
     video.currentTime += value;
 }   
@@ -101,6 +130,7 @@ function dropDown() {
         dropdownMenu.style.display = "none";
     }
 }
+
 
 
 function playPoint5() { 
@@ -159,51 +189,7 @@ exitFullscreen.addEventListener ("click", () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // ------> time interval function (odbrojava samo sekunde)
-
-    // setInterval(function() {
-    //     document.getElementById("time").innerHTML = video.currentTime;
-    // }, 100)    --------------------------------------------------------
-
-    
-    // ------> progress frame function (radi velikom brzinom)
-
-    // var progressLine = document.getElementById("progress-in");
-    // var width = 1;
-    // var interval;
-
-    // clearInterval(interval);
-    // interval = setInterval(frame, 100);
-
-    // function frame() {
-    //     if (width >= 100) {
-    //         width = 1;
-    //         clearInterval(interval);
-    //     } else {
-    //         width++;
-    //         progressLine.style.width = width + "%";
-    //     }
-    // }  ----------------------------------------------------------
- 
-}
-
-
-    // var curTimetext = document.getElementById("current-time-text");
+ // var curTimetext = document.getElementById("current-time-text");
 	// var durTimetext = document.getElementById("duration-time-text");
 
 
@@ -233,17 +219,3 @@ exitFullscreen.addEventListener ("click", () => {
 
 
 
-
-
-
-
-// --------------------------------------------------- stackoverflow
-
-// const playbackRate = document.getElementById("playback-rate");
-
-// function updatePlaybackRate() {
-//     const selectedValue = playbackRate.options[playbackRate.selectedIndex].value;
-//     video.playbackRate = selectedValue;
-//   }
-
-//   playbackRate.addEventListener("change", updatePlaybackRate);
