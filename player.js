@@ -179,7 +179,7 @@ fullScreen.addEventListener ("click", () => {
         settingsBar.style.marginTop = "-100px";
         settingsBar.style.opacity = "50%";
         settingsBar.style.background = "black";
-        tv.style.padding = "0";
+        tv.style.padding = "10px 10px";
     // } if (body.style.width < "430px") {
     //     settingsBar.style.marginTop = "-75px";
     // } else {

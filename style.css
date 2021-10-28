@@ -314,7 +314,7 @@ img {
     flex-direction: column;
     background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.5) 100%);
     margin-top: -150px;
-    right: 15%;
+    right: 16.5%;
     align-items: center;
     color: white;
     transition: visibiliti 0s, opacity 0.5s ease;
