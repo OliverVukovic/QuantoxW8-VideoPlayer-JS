@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <title>Quantox-W8</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="body">
+
+    <section>
+
+        <div class="header">
+            <h1 class="headline">My video player</h1>
+
+            <div class="search">
+                <input class="search-input" type="text" id="query" placeholder="Search...">
+                <i><img class="search-icon" onclick="loadVideo()" src="./images/search.png" alt="search-icon"></i>
+            </div>
+        </div>
+        
+        <div class="container" id="tv">
+
+            <video class="video-player" id="video" src="./video/CZ-LIV.mp4"></video>
+
+            <div class="video-settings" id="move-up">
+
+                <div class="time-progress">
+
+                    <div class="progress-bar" id="progress-out">
+                        <div class="progress-line" id="progress-in" value="0"></div>
+                    </div>
+    
+                    <img class="settings-menu" id="drop-down" src="./images/setting.png" alt="menu-icon" onclick="dropDown()">
+    
+                    <div class="settings-dropdown" id="dropdown-menu">
+                        <div class="dropdown-modal" id="playback-rate">
+                            <div class="dropdown-content" onclick="playPoint5()">
+                                0.5x
+                            </div>
+                            <div class="dropdown-content" onclick="playPoint75()">
+                                0.75x
+                            </div>
+                            <div class="dropdown-content"onclick="play1Point5()">
+                                1.5x
+                            </div>
+                            <div class="dropdown-content" onclick="play2Point()">
+                                2.0x
+                            </div>
+                            <div class="dropdown-content" onclick="playNormal()">
+                                1.0x
+                            </div>
+                        </div>
+
+                    </div>
+
+                    
+        
+                    <div class="time-box" id="time">
+                        <span id="current-time-text">00:00</span> / <span id="duration-time-text">00:00</span>
+                    </div>
+
+                </div>
+
+    
+                <div class="buttons-bar">
+    
+                    <div class="volume-bar">
+                        <img class="volume-buttons-on" src="./images/volume.png" id="volume-btn" alt="sound-on" onclick="audioMute()">
+                        <img class="volume-buttons-off" src="./images/mute.png" id="mute-btn" alt="sound-off" onclick="audioVolume()">
+                        <input class="volume-slider" type="range" name="volume" min="0" max="100" step="5" value="50" id="volumeslider">
+                    </div>
+    
+                    <div class="buttons">
+                        <button class="round-buttons" type="button" id="rewind-button" onclick="skip(-10)">
+                            <img src="./images/rewind.png" id="rew-btn" alt="rewind">
+                        </button>
+            
+                        <button class="play-pause" type="button" id="play-pause-button" onclick="play()">
+                            <img src="./images/play.png" id="icon-play-pause" alt="play">
+                        </button>
+            
+                        <button class="round-buttons" type="button" id="fast-forwad-button" onclick="skip(10)">
+                            <img src="./images/fast-forward.png" id="ff-btn" alt="fast-forward">
+                        </button>
+                    </div>
+    
+                    <div class="full-screen">
+                        <img class="full-screen-button" id="fullscreen" src="./images/full-screen.png" alt="full-screen">
+                        <img class="exit-full-screen-button" id="exit-fullscreen" src="./images/exit-full-screen.png" alt="exit-full-screen">
+                    </div>
+    
+                </div>
+                
+            </div>
+
+        </div>
+
+    </section>
+
+    <script type="text/javascript" src="player.js"></script>
+
+</body>
+</html>
